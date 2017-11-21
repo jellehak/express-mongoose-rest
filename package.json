@@ -1,6 +1,6 @@
 {
   "name": "express-mongoose-rest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rest factory for Express and mongoose",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jellehak/express-mongoose-rest/issues"
   },
-  "homepage": "https://github.com/jellehak/express-mongoose-rest#readme"
+  "homepage": "https://github.com/jellehak/express-mongoose-rest#readme",
+  "dependencies": {
+    "mongoose": "^4.13.4"
+  }
 }

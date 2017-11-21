@@ -15,7 +15,7 @@ Usage
 Simple:
 
     const RESTFactory = require("express-mongoose-rest")
-    router.use("/api/test",RESTFactory("test")
+    router.use("/api/test",RESTFactory("test"))
     
 Advanced: 
 

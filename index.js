@@ -1,5 +1,5 @@
-const RESTFactory = require("./RESTFactory")
-const RESTControllerFactory = require("./RESTControllerFactory")
+const RESTFactory = require("./src/RESTFactory")
+const RESTControllerFactory = require("./src/RESTControllerFactory")
 
 module.exports = RESTFactory
 
