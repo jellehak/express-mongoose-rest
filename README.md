@@ -13,10 +13,12 @@ Install
 Usage
 ---
 Simple:
+
     const RESTFactory = require("express-mongoose-rest")
     router.use("/api/test",RESTFactory("test")
     
 Advanced: 
+
     const RESTFactory = require("express-mongoose-rest")
     const defaultForce = {
         //creator: 'req.user._id',
