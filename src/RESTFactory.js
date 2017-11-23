@@ -1,19 +1,18 @@
 const express = require('express')
-const router = express.Router();
 const mongoose = require('mongoose')
 const RESTControllerFactory = require('./RESTControllerFactory')
 
-module.exports = function (modelName, options) {
-    var model = mongoose.model(modelName)
-    return factory(model, options)
-};
 
-function factory(model, options) {
-    var controller = RESTControllerFactory(model, options);
-    var base = ""
+module.exports = function factory(modelName, options) {
+    let router = express.Router(); //Note its important to create a new router!
+    let controller = RESTControllerFactory(modelName, options);
+    let base = ""
+
+    //console.log("New rest router created for model:", modelName, options)
 
     // todoList Routes
     router.route(base)
+        //router
         .get(controller.list)
         .post(controller.create);
 

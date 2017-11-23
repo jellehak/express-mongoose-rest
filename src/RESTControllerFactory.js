@@ -25,8 +25,9 @@ module.exports = function Factory(Model, options) {
 
       var result = await Model
         .find(query)
-        .populate(options.populate)
+        .populate(options.populate || [])
         .select(generateHiddenFields(options))
+
       res.json(result)
     } catch (err) { res.json({ success: false, message: err.message }) }
   };
@@ -41,9 +42,7 @@ module.exports = function Factory(Model, options) {
 
       var result = await new_task.save();
       res.json(result)
-    } catch (err) {
-      res.json({ success: false, message: err.message })
-    }
+    } catch (err) {      res.json({ success: false, message: err.message })    }
   };
 
   //:id
@@ -51,9 +50,7 @@ module.exports = function Factory(Model, options) {
     try {
       var result = await Model.findById(req.params.id)
       res.json(result);
-    } catch (err) {
-      res.json({ success: false, message: err.message })
-    }
+    } catch (err) {      res.json({ success: false, message: err.message })    }
   };
 
   //:id
@@ -65,9 +62,7 @@ module.exports = function Factory(Model, options) {
 
       var result = await Model.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       res.json(task);
-    } catch (err) {
-      res.json({ success: false, message: err.message })
-    }
+    } catch (err) {      res.json({ success: false, message: err.message })   }
   };
 
   //:id
@@ -77,9 +72,7 @@ module.exports = function Factory(Model, options) {
         _id: req.params.id
       })
       res.json({ message: 'Item successfully deleted' })
-    } catch (err) {
-      res.json({ success: false, message: err.message })
-    }
+    } catch (err) {      res.json({ success: false, message: err.message })    }
   };
 
 
