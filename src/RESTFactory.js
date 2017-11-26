@@ -20,6 +20,7 @@ module.exports = function factory(modelName, options) {
     router.route(base + '/:id')
         .get(controller.read)
         .put(controller.put)
+        .post(controller.post)
         .delete(controller.remove);
 
     return router
