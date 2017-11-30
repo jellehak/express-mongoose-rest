@@ -48,7 +48,7 @@ module.exports = function Factory(modelName, options) {
     async function create(req, res) {
         try {
             var req_data = epureRequest(req, options)
-            var new_task = new Model(req.body);
+            var new_task = new Model(req_data);
             var result = await new_task.save();
             res.json(result)
         } catch (err) { res.json({ success: false, message: err.message }) }
@@ -69,7 +69,7 @@ module.exports = function Factory(modelName, options) {
     async function put(req, res) {
         try {
             var req_data = epureRequest(req, options)
-            var result = await Model.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+            var result = await Model.findOneAndUpdate({ _id: req.params.id }, req_data, { new: true })
             res.json(result);
         } catch (err) { res.json({ success: false, message: err.message }) }
     };
